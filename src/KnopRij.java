@@ -15,5 +15,5 @@ public class KnopRij extends JPanel{
         add(pin2);
         add(pin3);
         add(pin4);
-    }hoi
+    }hoidoei
 }
