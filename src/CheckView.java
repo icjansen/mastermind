@@ -9,7 +9,7 @@ import javax.swing.*;
 public class CheckView extends JPanel {
 
     private JLabel tijdlabel, tijdbeschrijving;
-    private Timer timer = new Timer(10, new TimerHandler());
+    public Timer timer = new Timer(10, new TimerHandler());
     LocalTime startTime=LocalTime.now();
     LocalTime currentTime=LocalTime.now();
     private boolean isgestart=false;
