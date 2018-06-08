@@ -17,7 +17,7 @@ class MastermindController extends JPanel {
 	public KnopRij knoprij1, knoprij2, knoprij3, knoprij4, knoprij5, knoprij6, knoprij7, knoprij8;
 	private int waarde = 0;
 	private int turncount=0;
-	
+
 	boolean geraden = false;
 
 	public MastermindController() {
@@ -25,7 +25,7 @@ class MastermindController extends JPanel {
 		//De getallen staan voor de ruimte tussen de views
 		setLayout( new BorderLayout( 5, 5 ) );
 
-		for (int i = 0; i < knoprijen.length; i++){
+		for (int i = 7; i >= 0 ; i--){
 			KnopRij knopRij = knoprijen[i];
 			knopRij = new KnopRij();
 
@@ -109,11 +109,11 @@ class MastermindController extends JPanel {
 			secretview.geheim4.setText("magenta");
 		}
 	}
-	
-	
+
+
 	class CheckknopHandler implements ActionListener {
 		public void actionPerformed( ActionEvent e ) {
-			
+
 			//hier komen de getters en setters voor de waarden
 			//Hier checkt hij ook of die waardes overeenkomen met de te kraken code
 			//getIngevoerdewaarde();
@@ -133,35 +133,6 @@ class MastermindController extends JPanel {
 		public void actionPerformed(ActionEvent e){
 			if(e.getSource()==knoprij1.pin1){
 				if(waarde < 6){
-                        waarde += 1;
-                        System.out.println("waarde = " + waarde);
-				}
-                    else {
-                        waarde = 1;
-                        System.out.println("waarde = " + waarde);
-                    }
-
-                    if(waarde == 1){
-                        knoprij1.pin1.setBackground(Color.GREEN);
-                    }
-                    if(waarde == 2){
-						knoprij1.pin1.setBackground(Color.RED);
-                    }
-                    if(waarde == 3){
-						knoprij1.pin1.setBackground(Color.BLUE);
-                    }
-                    if(waarde == 4){
-						knoprij1.pin1.setBackground(Color.YELLOW);
-                    }
-                    if(waarde == 5){
-						knoprij1.pin1.setBackground(Color.CYAN);
-                    }
-                    if(waarde == 6){
-						knoprij1.pin1.setBackground(Color.MAGENTA);
-                    }
-			}
-			else if(e.getSource()==knoprij1.pin2){
-				if(waarde < 6){
 					waarde += 1;
 					System.out.println("waarde = " + waarde);
 				}
@@ -171,83 +142,24 @@ class MastermindController extends JPanel {
 				}
 
 				if(waarde == 1){
-					knoprij1.pin2.setBackground(Color.GREEN);
+					knoprij1.pin1.setBackground(Color.GREEN);
 				}
 				if(waarde == 2){
-					knoprij1.pin2.setBackground(Color.RED);
+					knoprij1.pin1.setBackground(Color.RED);
 				}
 				if(waarde == 3){
-					knoprij1.pin2.setBackground(Color.BLUE);
+					knoprij1.pin1.setBackground(Color.BLUE);
 				}
 				if(waarde == 4){
-					knoprij1.pin2.setBackground(Color.YELLOW);
+					knoprij1.pin1.setBackground(Color.YELLOW);
 				}
 				if(waarde == 5){
-					knoprij1.pin2.setBackground(Color.CYAN);
+					knoprij1.pin1.setBackground(Color.CYAN);
 				}
 				if(waarde == 6){
-					knoprij1.pin2.setBackground(Color.MAGENTA);
+					knoprij1.pin1.setBackground(Color.MAGENTA);
 				}
 			}
-//            for(int i=0; i<pin.length; i++){
-//                if(e.getSource() == pin[i]){
-//                    pin[i].setBackground(Color.BLUE);
-//                    if(waarde < 6){
-//                        waarde += 1;
-//                        System.out.println("waarde = " + waarde);
-//                    }
-//                    else {
-//                        waarde = 1;
-//                        System.out.println("waarde = " + waarde);
-//                    }
-//
-//                    if(waarde == 1){
-//                        pin[i].setBackground(Color.GREEN);
-//                    }
-//                    if(waarde == 2){
-//                        pin[i].setBackground(Color.RED);
-//                    }
-//                    if(waarde == 3){
-//                        pin[i].setBackground(Color.BLUE);
-//                    }
-//                    if(waarde == 4){
-//                        pin[i].setBackground(Color.YELLOW);
-//                    }
-//                    if(waarde == 5){
-//                        pin[i].setBackground(Color.CYAN);
-//                    }
-//                    if(waarde == 6){
-//                        pin[i].setBackground(Color.MAGENTA);
-//                    }
-////                    if(waarde[i] < 6){
-////                        waarde[i] += 1;
-////                        System.out.println("waarde van " + pin[i] + "= " + waarde[i]);
-////                    }
-////                    else {
-////                        waarde[i] = 1;
-////                        System.out.println("waarde van " + pin[i] + "= " + waarde[i]);
-////                    }
-////
-////                    if(waarde[i] == 1){
-////                        pin[i].setBackground(Color.GREEN);
-////                    }
-////                    if(waarde[i] == 2){
-////                        pin[i].setBackground(Color.RED);
-////                    }
-////                    if(waarde[i] == 3){
-////                        pin[i].setBackground(Color.BLUE);
-////                    }
-////                    if(waarde[i] == 4){
-////                        pin[i].setBackground(Color.YELLOW);
-////                    }
-////                    if(waarde[i] == 5){
-////                        pin[i].setBackground(Color.CYAN);
-////                    }
-////                    if(waarde[i] == 6){
-////                        pin[i].setBackground(Color.MAGENTA);
-////                    }
-//                }
-//            }
 		}
 	}
 
@@ -262,6 +174,9 @@ class MastermindController extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			pin.setText("pin 1 gedrukt");
+			if(e.getSource()==knoprijen[0].pin1){
+				System.out.println("test");
+			}
 		}
 	}
 }

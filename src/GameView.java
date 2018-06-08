@@ -15,7 +15,7 @@ public class GameView extends JPanel {
         this.controller = controller;
         setBackground(Color.GREEN);
 
-        for (int i = 0; i < controller.knoprijen.length; i++){
+        for (int i = 7; i >= 0 ; i--){
             add(controller.knoprijen[i]);
         }
 //        pin = new JButton[aantal_pins];
