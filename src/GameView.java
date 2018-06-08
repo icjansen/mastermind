@@ -82,4 +82,4 @@ public class GameView extends JPanel {
 
     //welke pin geklikt? die pin onthouden en de kleur en waarde daarvan aanpassen
 
-}
+}rgsf
