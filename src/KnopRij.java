@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class KnopRij extends JPanel{
 
@@ -10,6 +11,10 @@ public class KnopRij extends JPanel{
         pin2 = new JButton("2");
         pin3 = new JButton("3");
         pin4 = new JButton("4");
+        pin1.setPreferredSize(new Dimension(100, 50));
+        pin2.setPreferredSize(new Dimension(100, 50));
+        pin3.setPreferredSize(new Dimension(100, 50));
+        pin4.setPreferredSize(new Dimension(100, 50));
 
         add(pin1);
         add(pin2);

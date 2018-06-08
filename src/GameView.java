@@ -25,6 +25,15 @@ public class GameView extends JPanel {
         knoprij7 = new KnopRij();
         knoprij8 = new KnopRij();
 
+        add(knoprij1);
+        add(knoprij2);
+        add(knoprij3);
+        add(knoprij4);
+        add(knoprij5);
+        add(knoprij6);
+        add(knoprij7);
+        add(knoprij8);
+
 //        pin = new JButton[aantal_pins];
 //
 //        for(int i=1; i<aantal_pins; i++){
