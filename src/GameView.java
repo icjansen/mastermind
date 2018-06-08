@@ -7,33 +7,17 @@ import javax.swing.*;
 public class GameView extends JPanel {
     private int aantal_pins = 41;
     private JButton[] pin;
+    private MastermindController controller;
 //    private int[] waarde;
-    private int waarde = 0;
-    private int turncount=0;
-    private KnopRij knoprij1, knoprij2, knoprij3, knoprij4, knoprij5, knoprij6, knoprij7, knoprij8;
+//    public KnopRij knoprij1, knoprij2, knoprij3, knoprij4, knoprij5, knoprij6, knoprij7, knoprij8;
 
-    public GameView (){
-
+    public GameView (MastermindController controller){
+        this.controller = controller;
         setBackground(Color.GREEN);
 
-        knoprij1 = new KnopRij();
-        knoprij2 = new KnopRij();
-        knoprij3 = new KnopRij();
-        knoprij4 = new KnopRij();
-        knoprij5 = new KnopRij();
-        knoprij6 = new KnopRij();
-        knoprij7 = new KnopRij();
-        knoprij8 = new KnopRij();
-
-        add(knoprij1);
-        add(knoprij2);
-        add(knoprij3);
-        add(knoprij4);
-        add(knoprij5);
-        add(knoprij6);
-        add(knoprij7);
-        add(knoprij8);
-
+        for (int i = 0; i < controller.knoprijen.length; i++){
+            add(controller.knoprijen[i]);
+        }
 //        pin = new JButton[aantal_pins];
 //
 //        for(int i=1; i<aantal_pins; i++){
@@ -97,68 +81,5 @@ public class GameView extends JPanel {
     //https://stackoverflow.com/questions/29529411/java-array-of-buttons-get-the-source?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 
     //welke pin geklikt? die pin onthouden en de kleur en waarde daarvan aanpassen
-    class ButtonHandler implements ActionListener{
-        public void actionPerformed(ActionEvent e){
 
-//            for(int i=0; i<pin.length; i++){
-//                if(e.getSource() == pin[i]){
-//                    pin[i].setBackground(Color.BLUE);
-//                    if(waarde < 6){
-//                        waarde += 1;
-//                        System.out.println("waarde = " + waarde);
-//                    }
-//                    else {
-//                        waarde = 1;
-//                        System.out.println("waarde = " + waarde);
-//                    }
-//
-//                    if(waarde == 1){
-//                        pin[i].setBackground(Color.GREEN);
-//                    }
-//                    if(waarde == 2){
-//                        pin[i].setBackground(Color.RED);
-//                    }
-//                    if(waarde == 3){
-//                        pin[i].setBackground(Color.BLUE);
-//                    }
-//                    if(waarde == 4){
-//                        pin[i].setBackground(Color.YELLOW);
-//                    }
-//                    if(waarde == 5){
-//                        pin[i].setBackground(Color.CYAN);
-//                    }
-//                    if(waarde == 6){
-//                        pin[i].setBackground(Color.MAGENTA);
-//                    }
-////                    if(waarde[i] < 6){
-////                        waarde[i] += 1;
-////                        System.out.println("waarde van " + pin[i] + "= " + waarde[i]);
-////                    }
-////                    else {
-////                        waarde[i] = 1;
-////                        System.out.println("waarde van " + pin[i] + "= " + waarde[i]);
-////                    }
-////
-////                    if(waarde[i] == 1){
-////                        pin[i].setBackground(Color.GREEN);
-////                    }
-////                    if(waarde[i] == 2){
-////                        pin[i].setBackground(Color.RED);
-////                    }
-////                    if(waarde[i] == 3){
-////                        pin[i].setBackground(Color.BLUE);
-////                    }
-////                    if(waarde[i] == 4){
-////                        pin[i].setBackground(Color.YELLOW);
-////                    }
-////                    if(waarde[i] == 5){
-////                        pin[i].setBackground(Color.CYAN);
-////                    }
-////                    if(waarde[i] == 6){
-////                        pin[i].setBackground(Color.MAGENTA);
-////                    }
-//                }
-//            }
-        }
-    }
 }

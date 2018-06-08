@@ -1,8 +1,8 @@
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 @SuppressWarnings("serial")
 class MastermindController extends JPanel {
@@ -13,6 +13,10 @@ class MastermindController extends JPanel {
 	private InvoerView invoerview;
 	private SecretView secretview;
 	private CodeModel codemodel;
+	public KnopRij[] knoprijen = new KnopRij[8];
+	public KnopRij knoprij1, knoprij2, knoprij3, knoprij4, knoprij5, knoprij6, knoprij7, knoprij8;
+	private int waarde = 0;
+	private int turncount=0;
 	
 	boolean geraden = false;
 
@@ -21,7 +25,22 @@ class MastermindController extends JPanel {
 		//De getallen staan voor de ruimte tussen de views
 		setLayout( new BorderLayout( 5, 5 ) );
 
-		gameview = new GameView();
+		for (int i = 0; i < knoprijen.length; i++){
+			KnopRij knopRij = knoprijen[i];
+			knopRij = new KnopRij();
+
+
+			knopRij.pin1.addActionListener(new pinActionListener(knopRij.pin1));
+			knopRij.pin2.addActionListener(new pinActionListener(knopRij.pin2));
+			knopRij.pin3.addActionListener(new pinActionListener(knopRij.pin3));
+			knopRij.pin4.addActionListener(new pinActionListener(knopRij.pin4));
+
+			knoprijen[i] = knopRij;
+		}
+
+
+
+		gameview = new GameView(this);
 		invoerview = new InvoerView();
 		checkview = new CheckView();
 		overviewview = new OverviewView();
@@ -107,6 +126,142 @@ class MastermindController extends JPanel {
 			//row ++;
 			System.out.println("row = ");
 
+		}
+	}
+
+	class ButtonHandler implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			if(e.getSource()==knoprij1.pin1){
+				if(waarde < 6){
+                        waarde += 1;
+                        System.out.println("waarde = " + waarde);
+				}
+                    else {
+                        waarde = 1;
+                        System.out.println("waarde = " + waarde);
+                    }
+
+                    if(waarde == 1){
+                        knoprij1.pin1.setBackground(Color.GREEN);
+                    }
+                    if(waarde == 2){
+						knoprij1.pin1.setBackground(Color.RED);
+                    }
+                    if(waarde == 3){
+						knoprij1.pin1.setBackground(Color.BLUE);
+                    }
+                    if(waarde == 4){
+						knoprij1.pin1.setBackground(Color.YELLOW);
+                    }
+                    if(waarde == 5){
+						knoprij1.pin1.setBackground(Color.CYAN);
+                    }
+                    if(waarde == 6){
+						knoprij1.pin1.setBackground(Color.MAGENTA);
+                    }
+			}
+			else if(e.getSource()==knoprij1.pin2){
+				if(waarde < 6){
+					waarde += 1;
+					System.out.println("waarde = " + waarde);
+				}
+				else {
+					waarde = 1;
+					System.out.println("waarde = " + waarde);
+				}
+
+				if(waarde == 1){
+					knoprij1.pin2.setBackground(Color.GREEN);
+				}
+				if(waarde == 2){
+					knoprij1.pin2.setBackground(Color.RED);
+				}
+				if(waarde == 3){
+					knoprij1.pin2.setBackground(Color.BLUE);
+				}
+				if(waarde == 4){
+					knoprij1.pin2.setBackground(Color.YELLOW);
+				}
+				if(waarde == 5){
+					knoprij1.pin2.setBackground(Color.CYAN);
+				}
+				if(waarde == 6){
+					knoprij1.pin2.setBackground(Color.MAGENTA);
+				}
+			}
+//            for(int i=0; i<pin.length; i++){
+//                if(e.getSource() == pin[i]){
+//                    pin[i].setBackground(Color.BLUE);
+//                    if(waarde < 6){
+//                        waarde += 1;
+//                        System.out.println("waarde = " + waarde);
+//                    }
+//                    else {
+//                        waarde = 1;
+//                        System.out.println("waarde = " + waarde);
+//                    }
+//
+//                    if(waarde == 1){
+//                        pin[i].setBackground(Color.GREEN);
+//                    }
+//                    if(waarde == 2){
+//                        pin[i].setBackground(Color.RED);
+//                    }
+//                    if(waarde == 3){
+//                        pin[i].setBackground(Color.BLUE);
+//                    }
+//                    if(waarde == 4){
+//                        pin[i].setBackground(Color.YELLOW);
+//                    }
+//                    if(waarde == 5){
+//                        pin[i].setBackground(Color.CYAN);
+//                    }
+//                    if(waarde == 6){
+//                        pin[i].setBackground(Color.MAGENTA);
+//                    }
+////                    if(waarde[i] < 6){
+////                        waarde[i] += 1;
+////                        System.out.println("waarde van " + pin[i] + "= " + waarde[i]);
+////                    }
+////                    else {
+////                        waarde[i] = 1;
+////                        System.out.println("waarde van " + pin[i] + "= " + waarde[i]);
+////                    }
+////
+////                    if(waarde[i] == 1){
+////                        pin[i].setBackground(Color.GREEN);
+////                    }
+////                    if(waarde[i] == 2){
+////                        pin[i].setBackground(Color.RED);
+////                    }
+////                    if(waarde[i] == 3){
+////                        pin[i].setBackground(Color.BLUE);
+////                    }
+////                    if(waarde[i] == 4){
+////                        pin[i].setBackground(Color.YELLOW);
+////                    }
+////                    if(waarde[i] == 5){
+////                        pin[i].setBackground(Color.CYAN);
+////                    }
+////                    if(waarde[i] == 6){
+////                        pin[i].setBackground(Color.MAGENTA);
+////                    }
+//                }
+//            }
+		}
+	}
+
+	class pinActionListener implements ActionListener {
+
+		JButton pin;
+
+		public pinActionListener(JButton pin){
+			this.pin = pin;
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			pin.setText("pin 1 gedrukt");
 		}
 	}
 }

@@ -1,10 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class KnopRij extends JPanel{
 
-    private JButton pin1, pin2, pin3, pin4;
-    private int aantal_pins=4;
+    public JButton pin1, pin2, pin3, pin4;
 
     public KnopRij(){
         pin1 = new JButton("1");
