@@ -1,11 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
+@SuppressWarnings("serial")
 public class KnopRij extends JPanel{
-
-    public JButton pin1, pin2, pin3, pin4;
+	
+    JButton pin1;
+	JButton pin2;
+	JButton pin3;
+	JButton pin4;
 
     public KnopRij(){
         pin1 = new JButton("1");
@@ -16,10 +18,12 @@ public class KnopRij extends JPanel{
         pin2.setPreferredSize(new Dimension(100, 50));
         pin3.setPreferredSize(new Dimension(100, 50));
         pin4.setPreferredSize(new Dimension(100, 50));
-
+        
         add(pin1);
         add(pin2);
         add(pin3);
         add(pin4);
     }
+    
+    
 }

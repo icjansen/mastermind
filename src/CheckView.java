@@ -1,4 +1,3 @@
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalTime;
@@ -6,6 +5,7 @@ import java.time.temporal.ChronoUnit;
 
 import javax.swing.*;
 
+@SuppressWarnings("serial")
 public class CheckView extends JPanel {
 
     private JLabel tijdlabel, tijdbeschrijving;
