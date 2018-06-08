@@ -167,15 +167,130 @@ class MastermindController extends JPanel {
 
 		JButton pin;
 
-		public pinActionListener(JButton pin){
+		public pinActionListener(JButton pin) {
 			this.pin = pin;
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			pin.setText("pin 1 gedrukt");
-			if(e.getSource()==knoprijen[0].pin1){
-				System.out.println("test");
+			for (int i = 0; i < knoprijen.length; i++) {
+				if (e.getSource() == knoprijen[i].pin1) {
+//					knoprijen[i].pin1.setBackground(Color.BLUE);
+					System.out.println("test rij 1");
+					if(waarde < 6){
+						waarde += 1;
+					}
+					else {
+						waarde = 1;
+						System.out.println("waarde = " + waarde);
+					}
+
+					if(waarde == 1){
+						knoprijen[i].pin1.setBackground(Color.GREEN);
+					}
+					if(waarde == 2){
+						knoprijen[i].pin1.setBackground(Color.RED);
+					}
+					if(waarde == 3){
+						knoprijen[i].pin1.setBackground(Color.BLUE);
+					}
+					if(waarde == 4){
+						knoprijen[i].pin1.setBackground(Color.YELLOW);
+					}
+					if(waarde == 5){
+						knoprijen[i].pin1.setBackground(Color.CYAN);
+					}
+					if(waarde == 6){
+						knoprijen[i].pin1.setBackground(Color.MAGENTA);
+					}
+				}else if(e.getSource() == knoprijen[i].pin2) {
+//					knoprijen[i].pin1.setBackground(Color.BLUE);
+						System.out.println("test rij 2");
+						if(waarde < 6){
+							waarde += 1;
+						}
+						else {
+							waarde = 1;
+							System.out.println("waarde = " + waarde);
+						}
+
+						if(waarde == 1){
+							knoprijen[i].pin2.setBackground(Color.GREEN);
+						}
+						if(waarde == 2){
+							knoprijen[i].pin2.setBackground(Color.RED);
+						}
+						if(waarde == 3){
+							knoprijen[i].pin2.setBackground(Color.BLUE);
+						}
+						if(waarde == 4){
+							knoprijen[i].pin2.setBackground(Color.YELLOW);
+						}
+						if(waarde == 5){
+							knoprijen[i].pin2.setBackground(Color.CYAN);
+						}
+						if(waarde == 6){
+							knoprijen[i].pin2.setBackground(Color.MAGENTA);
+						}
+					}else if(e.getSource() == knoprijen[i].pin3) {
+//					knoprijen[i].pin1.setBackground(Color.BLUE);
+					System.out.println("test rij 3");
+					if(waarde < 6){
+						waarde += 1;
+					}
+					else {
+						waarde = 1;
+						System.out.println("waarde = " + waarde);
+					}
+
+					if(waarde == 1){
+						knoprijen[i].pin3.setBackground(Color.GREEN);
+					}
+					if(waarde == 2){
+						knoprijen[i].pin3.setBackground(Color.RED);
+					}
+					if(waarde == 3){
+						knoprijen[i].pin3.setBackground(Color.BLUE);
+					}
+					if(waarde == 4){
+						knoprijen[i].pin3.setBackground(Color.YELLOW);
+					}
+					if(waarde == 5){
+						knoprijen[i].pin3.setBackground(Color.CYAN);
+					}
+					if(waarde == 6){
+						knoprijen[i].pin3.setBackground(Color.MAGENTA);
+					}
+				}else if(e.getSource() == knoprijen[i].pin4) {
+//					knoprijen[i].pin1.setBackground(Color.BLUE);
+					System.out.println("test rij 4");
+					if (waarde < 6) {
+						waarde += 1;
+					} else {
+						waarde = 1;
+						System.out.println("waarde = " + waarde);
+					}
+
+					if (waarde == 1) {
+						knoprijen[i].pin4.setBackground(Color.GREEN);
+					}
+					if (waarde == 2) {
+						knoprijen[i].pin4.setBackground(Color.RED);
+					}
+					if (waarde == 3) {
+						knoprijen[i].pin4.setBackground(Color.BLUE);
+					}
+					if (waarde == 4) {
+						knoprijen[i].pin4.setBackground(Color.YELLOW);
+					}
+					if (waarde == 5) {
+						knoprijen[i].pin4.setBackground(Color.CYAN);
+					}
+					if (waarde == 6) {
+						knoprijen[i].pin4.setBackground(Color.MAGENTA);
+					}
+				}
 			}
 		}
 	}
