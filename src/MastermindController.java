@@ -46,7 +46,7 @@ class MastermindController extends JPanel {
 			secretview.geheim1.setText("cyan");
 		}else{
 			secretview.geheim1.setText("magenta");
-		};
+		}
 
 		if (codemodel.secretpin2 == 1){
 			secretview.geheim2.setText("groen");
@@ -60,7 +60,7 @@ class MastermindController extends JPanel {
 			secretview.geheim2.setText("cyan");
 		} else{
 			secretview.geheim2.setText("magenta");
-		};
+		}
 
 		if (codemodel.secretpin3 == 1){
 			secretview.geheim3.setText("groen");
@@ -74,7 +74,7 @@ class MastermindController extends JPanel {
 			secretview.geheim3.setText("cyan");
 		} else{
 			secretview.geheim3.setText("magenta");
-		};
+		}
 
 		if (codemodel.secretpin4 == 1){
 			secretview.geheim4.setText("groen");
@@ -88,7 +88,7 @@ class MastermindController extends JPanel {
 			secretview.geheim4.setText("cyan");
 		} else{
 			secretview.geheim4.setText("magenta");
-		};
+		}
 	}
 	
 	
@@ -98,10 +98,10 @@ class MastermindController extends JPanel {
 			//hier komen de getters en setters voor de waarden
 			//Hier checkt hij ook of die waardes overeenkomen met de te kraken code
 			//getIngevoerdewaarde();
-			if(geraden == true){
+			if(geraden){
 
 			}
-			else if (geraden == false){
+			else{
 
 			}
 			//row ++;
