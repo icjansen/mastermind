@@ -12,7 +12,7 @@ public class CheckView extends JPanel {
     public Timer timer = new Timer(10, new TimerHandler());
     LocalTime startTime=LocalTime.now();
     LocalTime currentTime=LocalTime.now();
-    private boolean isgestart=false;
+    public boolean isgestart=false;
 
     public CheckView (){
 

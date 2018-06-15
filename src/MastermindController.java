@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalTime;
 
 import javax.swing.*;
 
@@ -14,7 +15,6 @@ class MastermindController extends JPanel {
 	private CodeModel codemodel;
 	public KnopRij[] knoprijen = new KnopRij[8];
 	public JButton[] secretButton;
-	private Color achtergrondKleur;
 
 	private int current = 0;
 	//		private int waarde = 0;
@@ -30,7 +30,7 @@ class MastermindController extends JPanel {
 		setLayout( new BorderLayout( 0, 0 ) );
 
 		for (int i = 7; i >= 0 ; i--){
-			KnopRij knopRij = knoprijen[i];
+			KnopRij knopRij;
 			knopRij = new KnopRij();
 
 			setRowState(knopRij, false);
@@ -125,6 +125,25 @@ class MastermindController extends JPanel {
 		} else{
 			System.out.println("Secretpin4 is magenta");
 		}
+
+		invoerview.resetKnop.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				checkview.timer.stop();
+				codemodel = new CodeModel();
+				setRowState(knoprijen[current], false);
+				current=0;
+				setRowState(knoprijen[current], true);
+				for(int current=0; current<8; current++){
+					knoprijen[current].pin1.setBackground(new JButton().getBackground());
+					knoprijen[current].pin2.setBackground(new JButton().getBackground());
+					knoprijen[current].pin3.setBackground(new JButton().getBackground());
+					knoprijen[current].pin4.setBackground(new JButton().getBackground());
+				}
+				checkview.startTime = LocalTime.now();
+				checkview.isgestart=true;
+				checkview.timer.start();
+			}
+		});
 
 		invoerview.checkknop.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
