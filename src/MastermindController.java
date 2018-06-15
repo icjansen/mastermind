@@ -15,11 +15,7 @@ class MastermindController extends JPanel {
 	private CodeModel codemodel;
 	public KnopRij[] knoprijen = new KnopRij[8];
 	public JButton[] secretButton;
-	//TODO public int[] goedoffout = new int[8];
-
 	private int current = 0;
-	//		private int waarde = 0;
-	//		private int turncount=0;
 
 
 	public MastermindController() {
@@ -28,11 +24,6 @@ class MastermindController extends JPanel {
 
 		//De getallen staan voor de ruimte tussen de views
 		setLayout( new BorderLayout( 0, 0 ) );
-
-		//TODO
-//		for(int i=0; i<8; i++){
-//
-//		}
 
 		for (int i = 7; i >= 0 ; i--){
 			KnopRij knopRij;
@@ -356,6 +347,8 @@ class MastermindController extends JPanel {
 						wittepin4 = true;
 						if(!zwartepin3){
 							//geef een witte pin
+                            //TODO
+//                            checkview.paint(g);
 							System.out.println("Voor pin4 is een witte pin");
 						}
 					}

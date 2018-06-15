@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalTime;
@@ -13,6 +14,8 @@ public class CheckView extends JPanel {
     LocalTime startTime=LocalTime.now();
     LocalTime currentTime=LocalTime.now();
     public boolean isgestart=false;
+    //TODO
+//    public int y=600;
 
     public CheckView (){
 
@@ -39,5 +42,11 @@ public class CheckView extends JPanel {
             tijdlabel.setText("" + minuten + ":"+ seconden/1000 + " m:s");
 //            tijdlabel.setText(String.format("%2.2f", (double)(elapsedtime/1000.0))+" seconden" );
         }
+
+        //TODO
+//        public void paintComponent(Graphics g){
+//            g.setColor(Color.BLACK);
+//            g.fillOval(30, y, 30, 30);
+//        }
     }
 }
