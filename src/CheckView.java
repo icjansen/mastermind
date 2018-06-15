@@ -19,7 +19,9 @@ public class CheckView extends JPanel {
 //    public int y=600;
 
     public CheckView (){
-
+    	
+		setLayout( new GridLayout( 6, 1, 0, 0 ) );
+		
         if (!isgestart) {
             timer.start();
             startTime = LocalTime.now();
