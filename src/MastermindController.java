@@ -11,7 +11,6 @@ class MastermindController extends JPanel {
 	private CheckView checkview;
 	private OverviewView overviewview;
 	private InvoerView invoerview;
-	private SecretView secretview;
 	private CodeModel codemodel;
 	public KnopRij[] knoprijen = new KnopRij[8];
 	public KnopRij knoprij1, knoprij2, knoprij3, knoprij4, knoprij5, knoprij6, knoprij7, knoprij8;
@@ -47,7 +46,6 @@ class MastermindController extends JPanel {
 		invoerview = new InvoerView();
 		checkview = new CheckView();
 		overviewview = new OverviewView();
-		secretview = new SecretView();
 		codemodel = new CodeModel();
 
 		add( gameview, BorderLayout.CENTER );
@@ -57,82 +55,58 @@ class MastermindController extends JPanel {
 		//add( secretview, BorderLayout.NORTH);
 
 		if (codemodel.secretpin1 == 1){
-			secretview.geheim1.setText("groen");
 			System.out.println("Secretpin1 is groen");
 		} else if(codemodel.secretpin1 == 2){
-			secretview.geheim1.setText("rood");
 			System.out.println("Secretpin1 is rood");
 		} else if(codemodel.secretpin1 == 3){
-			secretview.geheim1.setText("blauw");
 			System.out.println("Secretpin1 is blauw");
 		} else if(codemodel.secretpin1 == 4){
-			secretview.geheim1.setText("geel");
 			System.out.println("Secretpin1 is geel");
 		} else if(codemodel.secretpin1 == 5){
-			secretview.geheim1.setText("cyan");
 			System.out.println("Secretpin1 is cyan");
 		}else{
-			secretview.geheim1.setText("magenta");
 			System.out.println("Secretpin1 is magenta");
 		}
 
 		if (codemodel.secretpin2 == 1){
-			secretview.geheim2.setText("groen");
 			System.out.println("Secretpin2 is groen");
 		} else if(codemodel.secretpin2 == 2){
-			secretview.geheim2.setText("rood");
 			System.out.println("Secretpin2 is rood");
 		} else if(codemodel.secretpin2 == 3){
-			secretview.geheim2.setText("blauw");
 			System.out.println("Secretpin2 is blauw");
 		} else if(codemodel.secretpin2 == 4){
-			secretview.geheim2.setText("geel");
 			System.out.println("Secretpin2 is geel");
 		} else if(codemodel.secretpin2 == 5){
-			secretview.geheim2.setText("cyan");
 			System.out.println("Secretpin2 is cyan");
 		} else{
-			secretview.geheim2.setText("magenta");
 			System.out.println("Secretpin2 is magenta");
 		}
 
 		if (codemodel.secretpin3 == 1){
-			secretview.geheim3.setText("groen");
 			System.out.println("Secretpin3 is groen");
 		} else if(codemodel.secretpin3 == 2){
-			secretview.geheim3.setText("rood");
 			System.out.println("Secretpin3 is rood");
 		} else if(codemodel.secretpin3 == 3){
-			secretview.geheim3.setText("blauw");
 			System.out.println("Secretpin3 is blauw");
 		} else if(codemodel.secretpin3 == 4){
-			secretview.geheim3.setText("geel");
 			System.out.println("Secretpin3 is geel");
 		} else if(codemodel.secretpin3 == 5){
-			secretview.geheim3.setText("cyan");
 			System.out.println("Secretpin3 is cyan");
 		} else{
-			secretview.geheim3.setText("magenta");
 			System.out.println("Secretpin3 is magenta");
 		}
 
 		if (codemodel.secretpin4 == 1){
-			secretview.geheim4.setText("groen");
 			System.out.println("Secretpin4 is groen");
 		} else if(codemodel.secretpin4 == 2){
-			secretview.geheim4.setText("rood");
 			System.out.println("Secretpin4 is rood");
 		} else if(codemodel.secretpin4 == 3){
-			secretview.geheim4.setText("blauw");
 			System.out.println("Secretpin4 is blauw");
 		} else if(codemodel.secretpin4 == 4){
-			secretview.geheim4.setText("geel");
 			System.out.println("Secretpin4 is geel");
 		} else if(codemodel.secretpin4 == 5){
-			secretview.geheim4.setText("cyan");
 			System.out.println("Secretpin4 is cyan");
 		} else{
-			secretview.geheim4.setText("magenta");
 			System.out.println("Secretpin4 is magenta");
 		}
 
