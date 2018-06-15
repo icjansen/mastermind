@@ -14,7 +14,7 @@ class MastermindController extends JPanel {
 	private SecretView secretview;
 	private CodeModel codemodel;
 	public KnopRij[] knoprijen = new KnopRij[8];
-	public JButton[] secretButton;
+	public KnopRij knoprij1, knoprij2, knoprij3, knoprij4, knoprij5, knoprij6, knoprij7, knoprij8;
 
 	private int current = 0;
 	//		private int waarde = 0;
@@ -27,12 +27,10 @@ class MastermindController extends JPanel {
 		//De getallen staan voor de ruimte tussen de views
 		setLayout( new BorderLayout( 5, 5 ) );
 
-		//alle rijen met knoppen worden van onder naar boven toegevoegd
 		for (int i = 7; i >= 0 ; i--){
 			KnopRij knopRij = knoprijen[i];
 			knopRij = new KnopRij();
 
-			//hier worden alle knoppen muv de huidige rij standaard uitgeschakeld
 			setRowState(knopRij, false);
 
 			knopRij.pin1.addActionListener(new pinActionListener(knopRij.pin1));
@@ -44,14 +42,6 @@ class MastermindController extends JPanel {
 		}
 
 		setRowState(knoprijen[current], true);
-
-		secretButton = new JButton[5];
-		for(int i=1; i<=4; i++){
-			secretButton[i]=new JButton("Geheim "+i);
-			secretButton[i].setPreferredSize(new Dimension(100, 50));
-			secretButton[i].setEnabled(false);
-			secretButton[i].setBackground(Color.BLACK);
-		}
 
 		gameview = new GameView(this);
 		invoerview = new InvoerView();
@@ -166,49 +156,133 @@ class MastermindController extends JPanel {
 				boolean zwartepin2 = false;
 				boolean zwartepin3 = false;
 				boolean zwartepin4 = false;
-				if(pin1waarde == codemodel.secretpin1){
-					//geef een zwarte pin
-					System.out.println("Voor pin1 is een zwarte pin");
-					zwartepin1  = true;
+				if(current <= 7){
+					if(pin1waarde == codemodel.secretpin1){
+						//geef een zwarte pin
+						System.out.println("Voor pin1 is een zwarte pin");
+						zwartepin1  = true;
+					}
+					if(pin2waarde == codemodel.secretpin2){
+						//geef een zwarte pin
+						System.out.println("Voor pin2 is een zwarte pin");
+						zwartepin2 = true;
+					}
+					if(pin3waarde == codemodel.secretpin3){
+						//geef een zwarte pin
+						System.out.println("Voor pin3 is een zwarte pin");
+						zwartepin3 = true;
+					}
+					if(pin4waarde == codemodel.secretpin4){
+						//geef een zwarte pin
+						System.out.println("Voor pin4 is een zwarte pin");
+						zwartepin4 = true;
+					}
+					if(pin1waarde == codemodel.secretpin1 && pin2waarde == codemodel.secretpin2 && pin3waarde == codemodel.secretpin3 && pin4waarde == codemodel.secretpin4){
+						System.out.println("Je hebt de code gekraakt!");
+						checkview.timer.stop();
+					}
+
+					if(pin1waarde == codemodel.secretpin2){
+						if(zwartepin2 == false){
+							//geef een witte pin
+							System.out.println("Voor pin1 is een witte pin");
+						}
+					}
+
+					if(pin1waarde == codemodel.secretpin3){
+						if(zwartepin3 == false){
+							//geef een witte pin
+							System.out.println("Voor pin1 is een witte pin");
+						}
+					}
+
+					if(pin1waarde == codemodel.secretpin4){
+						if(zwartepin4 == false){
+							//geef een witte pin
+							System.out.println("Voor pin1 is een witte pin");
+						}
+					}
+
+					if(pin2waarde == codemodel.secretpin1){
+						if(zwartepin1 == false){
+							//geef een witte pin
+							System.out.println("Voor pin2 is een witte pin");
+						}
+					}
+					if( pin2waarde == codemodel.secretpin3){
+						if(zwartepin3 == false){
+							//geef een witte pin
+							System.out.println("Voor pin2 is een witte pin");
+						}
+					}
+
+					if(pin2waarde == codemodel.secretpin4){
+						if(zwartepin4 == false){
+							//geef een witte pin
+							System.out.println("Voor pin2 is een witte pin");
+						}
+					}
+
+					if(pin3waarde == codemodel.secretpin1 ){
+						if(zwartepin1 == false){
+							//geef een witte pin
+							System.out.println("Voor pin3 is een witte pin");
+						}
+					}
+					if(pin3waarde == codemodel.secretpin2){
+						if(zwartepin2 == false){
+							//geef een witte pin
+							System.out.println("Voor pin3 is een witte pin");
+						}
+					}
+					if(pin3waarde == codemodel.secretpin4){
+						if(zwartepin4 == false){
+							//geef een witte pin
+							System.out.println("Voor pin3 is een witte pin");
+						}
+					}
+					if(pin4waarde == codemodel.secretpin1){
+						if(zwartepin1 == false){
+							//geef een witte pin
+							System.out.println("Voor pin4 is een witte pin");
+						}
+					}
+					if(pin4waarde == codemodel.secretpin2){
+
+						if(zwartepin2 == false){
+							//geef een witte pin
+							System.out.println("Voor pin4 is een witte pin");
+						}
+					}
+					if(pin4waarde == codemodel.secretpin3){
+						if(zwartepin3 == false){
+							//geef een witte pin
+							System.out.println("Voor pin4 is een witte pin");
+						}
+					}
+					else if (pin1waarde != codemodel.secretpin1 && 
+								pin1waarde != codemodel.secretpin2 && 
+									pin1waarde != codemodel.secretpin3 && 
+										pin1waarde != codemodel.secretpin4 && 
+							pin2waarde != codemodel.secretpin1 && 
+								pin2waarde != codemodel.secretpin2 && 
+									pin2waarde != codemodel.secretpin3 && 
+										pin2waarde != codemodel.secretpin4 &&
+							pin3waarde != codemodel.secretpin1 &&
+								pin3waarde != codemodel.secretpin2 &&
+									pin3waarde != codemodel.secretpin3 &&
+										pin3waarde != codemodel.secretpin4 &&
+							pin4waarde != codemodel.secretpin1 &&
+								pin4waarde != codemodel.secretpin2 &&
+									pin4waarde != codemodel.secretpin3 &&
+										pin4waarde != codemodel.secretpin4){
+						System.out.println("Geen pinnen");
+					}
 				}
-				if(pin2waarde == codemodel.secretpin2){
-					//geef een zwarte pin
-					System.out.println("Voor pin2 is een zwarte pin");
-					zwartepin2 = true;
-				}
-				if(pin3waarde == codemodel.secretpin3){
-					//geef een zwarte pin
-					System.out.println("Voor pin3 is een zwarte pin");
-					zwartepin3 = true;
-				}
-				if(pin4waarde == codemodel.secretpin4){
-					//geef een zwarte pin
-					System.out.println("Voor pin4 is een zwarte pin");
-					zwartepin4 = true;
-				}
-				if(pin1waarde == codemodel.secretpin1 && pin2waarde == codemodel.secretpin2 && pin3waarde == codemodel.secretpin3 && pin4waarde == codemodel.secretpin4){
-					System.out.println("Je hebt de code gekraakt!");
-					checkview.timer.stop();
-				}
-				if(pin1waarde == codemodel.secretpin2 || pin1waarde == codemodel.secretpin3 || pin1waarde == codemodel.secretpin4 && zwartepin1 == false){
-					//geef een witte pin
-					System.out.println("Voor pin1 is een witte pin");
-				}
-				if(pin2waarde == codemodel.secretpin1 || pin1waarde == codemodel.secretpin3 || pin1waarde == codemodel.secretpin4 && zwartepin2 == false){
-					//geef een witte pin
-					System.out.println("Voor pin2 is een witte pin");
-				}
-				if(pin3waarde == codemodel.secretpin1 || pin1waarde == codemodel.secretpin2 || pin1waarde == codemodel.secretpin4 && zwartepin3 == false){
-					//geef een witte pin
-					System.out.println("Voor pin3 is een witte pin");
-				}
-				if(pin4waarde == codemodel.secretpin1 || pin1waarde == codemodel.secretpin2 || pin1waarde == codemodel.secretpin3 && zwartepin4 == false){
-					//geef een witte pin
-					System.out.println("Voor pin4 is een witte pin");
-				}
-				else{
-					System.out.println("Geen pinnen");
-				}
+				//				else{
+				//					checkview.timer.stop();
+				//					System.out.println("Je hebt verloren");
+				//				}
 			}
 		});
 	}
