@@ -8,12 +8,17 @@ public class KnopRij extends JPanel{
 	JButton pin2;
 	JButton pin3;
 	JButton pin4;
+    private Color achtergrondKleur;
 
     public KnopRij(){
-        pin1 = new JButton("1");
-        pin2 = new JButton("2");
-        pin3 = new JButton("3");
-        pin4 = new JButton("4");
+
+        Color achtergrondKleur = new Color(118, 212, 255);
+        setBackground(achtergrondKleur);
+
+        pin1 = new JButton("");
+        pin2 = new JButton("");
+        pin3 = new JButton("");
+        pin4 = new JButton("");
         pin1.setPreferredSize(new Dimension(100, 50));
         pin2.setPreferredSize(new Dimension(100, 50));
         pin3.setPreferredSize(new Dimension(100, 50));

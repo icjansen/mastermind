@@ -16,9 +16,6 @@ public class CheckView extends JPanel {
 
     public CheckView (){
 
-//        setLayout(null);
-
-//        setBackground(Color.BLUE);
         if (!isgestart) {
             timer.start();
             startTime = LocalTime.now();

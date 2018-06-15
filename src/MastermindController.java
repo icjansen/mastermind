@@ -13,7 +13,8 @@ class MastermindController extends JPanel {
 	private InvoerView invoerview;
 	private CodeModel codemodel;
 	public KnopRij[] knoprijen = new KnopRij[8];
-	public KnopRij knoprij1, knoprij2, knoprij3, knoprij4, knoprij5, knoprij6, knoprij7, knoprij8;
+	public JButton[] secretButton;
+	private Color achtergrondKleur;
 
 	private int current = 0;
 	//		private int waarde = 0;
@@ -23,8 +24,10 @@ class MastermindController extends JPanel {
 
 	public MastermindController() {
 
+		Color achtergrondKleur = new Color(118, 212, 255);
+
 		//De getallen staan voor de ruimte tussen de views
-		setLayout( new BorderLayout( 5, 5 ) );
+		setLayout( new BorderLayout( 0, 0 ) );
 
 		for (int i = 7; i >= 0 ; i--){
 			KnopRij knopRij = knoprijen[i];
@@ -42,17 +45,30 @@ class MastermindController extends JPanel {
 
 		setRowState(knoprijen[current], true);
 
-		gameview = new GameView(this);
+        secretButton = new JButton[5];
+        for(int i=1; i<=4; i++){
+            secretButton[i]=new JButton("");
+            secretButton[i].setPreferredSize(new Dimension(100, 50));
+            secretButton[i].setEnabled(false);
+            secretButton[i].setBackground(Color.BLACK);
+        }
+
+
+        gameview = new GameView(this);
 		invoerview = new InvoerView();
 		checkview = new CheckView();
 		overviewview = new OverviewView();
 		codemodel = new CodeModel();
 
+		gameview.setBackground(achtergrondKleur);
+		invoerview.setBackground(achtergrondKleur);
+		checkview.setBackground(achtergrondKleur);
+		overviewview.setBackground(achtergrondKleur);
+
 		add( gameview, BorderLayout.CENTER );
 		add( invoerview, BorderLayout.SOUTH );
 		add( checkview, BorderLayout.EAST );
 		add( overviewview, BorderLayout.NORTH);
-		//add( secretview, BorderLayout.NORTH);
 
 		if (codemodel.secretpin1 == 1){
 			System.out.println("Secretpin1 is groen");
@@ -154,6 +170,61 @@ class MastermindController extends JPanel {
 					if(pin1waarde == codemodel.secretpin1 && pin2waarde == codemodel.secretpin2 && pin3waarde == codemodel.secretpin3 && pin4waarde == codemodel.secretpin4){
 						System.out.println("Je hebt de code gekraakt!");
 						checkview.timer.stop();
+						if (codemodel.secretpin1 == 1){
+							secretButton[1].setBackground(Color.GREEN);
+						} else if(codemodel.secretpin1 == 2){
+							secretButton[1].setBackground(Color.RED);
+						} else if(codemodel.secretpin1 == 3){
+							secretButton[1].setBackground(Color.BLUE);
+						} else if(codemodel.secretpin1 == 4){
+							secretButton[1].setBackground(Color.YELLOW);
+						} else if(codemodel.secretpin1 == 5){
+							secretButton[1].setBackground(Color.CYAN);
+						}else{
+							secretButton[1].setBackground(Color.MAGENTA);
+						}
+
+						if (codemodel.secretpin2 == 1){
+							secretButton[2].setBackground(Color.GREEN);
+						} else if(codemodel.secretpin2 == 2){
+							secretButton[2].setBackground(Color.RED);
+						} else if(codemodel.secretpin2 == 3){
+							secretButton[2].setBackground(Color.BLUE);
+						} else if(codemodel.secretpin2 == 4){
+							secretButton[2].setBackground(Color.YELLOW);
+						} else if(codemodel.secretpin2 == 5){
+							secretButton[2].setBackground(Color.CYAN);
+						} else{
+							secretButton[2].setBackground(Color.MAGENTA);
+						}
+
+						if (codemodel.secretpin3 == 1){
+							secretButton[3].setBackground(Color.GREEN);
+						} else if(codemodel.secretpin3 == 2){
+							secretButton[3].setBackground(Color.RED);
+						} else if(codemodel.secretpin3 == 3){
+							secretButton[3].setBackground(Color.BLUE);
+						} else if(codemodel.secretpin3 == 4){
+							secretButton[3].setBackground(Color.YELLOW);
+						} else if(codemodel.secretpin3 == 5){
+							secretButton[3].setBackground(Color.CYAN);
+						} else{
+							secretButton[3].setBackground(Color.MAGENTA);
+						}
+
+						if (codemodel.secretpin4 == 1){
+							secretButton[4].setBackground(Color.GREEN);
+						} else if(codemodel.secretpin4 == 2){
+							secretButton[4].setBackground(Color.RED);
+						} else if(codemodel.secretpin4 == 3){
+							secretButton[4].setBackground(Color.BLUE);
+						} else if(codemodel.secretpin4 == 4){
+							secretButton[4].setBackground(Color.YELLOW);
+						} else if(codemodel.secretpin4 == 5){
+							secretButton[4].setBackground(Color.CYAN);
+						} else{
+							secretButton[4].setBackground(Color.MAGENTA);
+						}
 					}
 
 					if(pin1waarde == codemodel.secretpin2){
