@@ -14,6 +14,7 @@ class MastermindController extends JPanel {
 	private CodeModel codemodel;
 	public KnopRij[] knoprijen = new KnopRij[8];
 	public JButton[] secretButton;
+	private Color achtergrondKleur;
 
 	private int current = 0;
 	//		private int waarde = 0;
@@ -22,6 +23,8 @@ class MastermindController extends JPanel {
 	boolean geraden = false;
 
 	public MastermindController() {
+
+		Color achtergrondKleur = new Color(118, 212, 255);
 
 		//De getallen staan voor de ruimte tussen de views
 		setLayout( new BorderLayout( 0, 0 ) );
@@ -57,10 +60,10 @@ class MastermindController extends JPanel {
 		overviewview = new OverviewView();
 		codemodel = new CodeModel();
 
-		gameview.setBackground(Color.GREEN);
-		invoerview.setBackground(Color.GREEN);
-		checkview.setBackground(Color.GREEN);
-		overviewview.setBackground(Color.GREEN);
+		gameview.setBackground(achtergrondKleur);
+		invoerview.setBackground(achtergrondKleur);
+		checkview.setBackground(achtergrondKleur);
+		overviewview.setBackground(achtergrondKleur);
 
 		add( gameview, BorderLayout.CENTER );
 		add( invoerview, BorderLayout.SOUTH );
