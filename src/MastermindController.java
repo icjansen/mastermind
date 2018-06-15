@@ -185,26 +185,31 @@ class MastermindController extends JPanel {
 					System.out.println("current = " + current);
 					if(pin1waarde == codemodel.secretpin1){
 						//geef een zwarte pin
+						checkview.outputLabel1.setText("zwart");
 						System.out.println("Voor pin1 is een zwarte pin");
 						zwartepin1  = true;
 					}
 					if(pin2waarde == codemodel.secretpin2){
 						//geef een zwarte pin
+						checkview.outputLabel2.setText("zwart");
 						System.out.println("Voor pin2 is een zwarte pin");
 						zwartepin2 = true;
 					}
 					if(pin3waarde == codemodel.secretpin3){
 						//geef een zwarte pin
+						checkview.outputLabel3.setText("zwart");
 						System.out.println("Voor pin3 is een zwarte pin");
 						zwartepin3 = true;
 					}
 					if(pin4waarde == codemodel.secretpin4){
 						//geef een zwarte pin
+						checkview.outputLabel4.setText("zwart");
 						System.out.println("Voor pin4 is een zwarte pin");
 						zwartepin4 = true;
 					}
 					if(pin1waarde == codemodel.secretpin1 && pin2waarde == codemodel.secretpin2 && pin3waarde == codemodel.secretpin3 && pin4waarde == codemodel.secretpin4){
 						System.out.println("Je hebt de code gekraakt!");
+						checkview.outputLabel1.setText("Code gekraakt!");
 						checkview.timer.stop();
 						if (codemodel.secretpin1 == 1){
 							secretButton[1].setBackground(Color.GREEN);
@@ -267,6 +272,7 @@ class MastermindController extends JPanel {
 						wittepin1 = true;
 						if(!zwartepin2){
 							//geef een witte pin
+							checkview.outputLabel1.setText("wit");
 							System.out.println("Voor pin1 is een witte pin");
 						}
 					}
@@ -274,6 +280,7 @@ class MastermindController extends JPanel {
 						wittepin1 = true;
 						if(!zwartepin3){
 							//geef een witte pin
+							checkview.outputLabel1.setText("wit");
 							System.out.println("Voor pin1 is een witte pin");
 						}
 					}
@@ -281,6 +288,7 @@ class MastermindController extends JPanel {
 						wittepin1 = true;
 						if(!zwartepin4){
 							//geef een witte pin
+							checkview.outputLabel1.setText("wit");
 							System.out.println("Voor pin1 is een witte pin");
 						}
 					}
@@ -289,6 +297,7 @@ class MastermindController extends JPanel {
 						wittepin2 = true;
 						if(!zwartepin1){
 							//geef een witte pin
+							checkview.outputLabel2.setText("wit");
 							System.out.println("Voor pin2 is een witte pin");
 						}
 					}
@@ -296,6 +305,7 @@ class MastermindController extends JPanel {
 						wittepin2 = true;
 						if(!zwartepin3){
 							//geef een witte pin
+							checkview.outputLabel2.setText("wit");
 							System.out.println("Voor pin2 is een witte pin");
 						}
 					}
@@ -303,6 +313,7 @@ class MastermindController extends JPanel {
 						wittepin2 = true;
 						if(!zwartepin4){
 							//geef een witte pin
+							checkview.outputLabel2.setText("wit");
 							System.out.println("Voor pin2 is een witte pin");
 						}
 					}
@@ -311,6 +322,7 @@ class MastermindController extends JPanel {
 						wittepin3 = true;
 						if(!zwartepin1){
 							//geef een witte pin
+							checkview.outputLabel3.setText("wit");
 							System.out.println("Voor pin3 is een witte pin");
 						}
 					}
@@ -318,6 +330,7 @@ class MastermindController extends JPanel {
 						wittepin3 = true;
 						if(!zwartepin2){
 							//geef een witte pin
+							checkview.outputLabel3.setText("wit");
 							System.out.println("Voor pin3 is een witte pin");
 						}
 					}
@@ -325,6 +338,7 @@ class MastermindController extends JPanel {
 						wittepin3 = true;
 						if(!zwartepin4){
 							//geef een witte pin
+							checkview.outputLabel3.setText("wit");
 							System.out.println("Voor pin3 is een witte pin");
 						}
 					}
@@ -333,6 +347,7 @@ class MastermindController extends JPanel {
 						wittepin4 = true;
 						if(!zwartepin1){
 							//geef een witte pin
+							checkview.outputLabel4.setText("wit");
 							System.out.println("Voor pin4 is een witte pin");
 						}
 					}
@@ -340,6 +355,7 @@ class MastermindController extends JPanel {
 						wittepin4 = true;
 						if(!zwartepin2){
 							//geef een witte pin
+							checkview.outputLabel4.setText("wit");
 							System.out.println("Voor pin4 is een witte pin");
 						}
 					}
@@ -349,6 +365,7 @@ class MastermindController extends JPanel {
 							//geef een witte pin
                             //TODO
 //                            checkview.paint(g);
+							checkview.outputLabel4.setText("wit");
 							System.out.println("Voor pin4 is een witte pin");
 						}
 					}
@@ -370,6 +387,7 @@ class MastermindController extends JPanel {
 									pin4waarde != codemodel.secretpin3 &&
 										pin4waarde != codemodel.secretpin4){
 						System.out.println("Geen pinnen");
+						checkview.outputLabel1.setText("niets goed");
 					}
 				}
 				else {

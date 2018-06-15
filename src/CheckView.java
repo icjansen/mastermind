@@ -10,6 +10,7 @@ import javax.swing.*;
 public class CheckView extends JPanel {
 
     private JLabel tijdlabel, tijdbeschrijving;
+    public JLabel outputLabel1, outputLabel2, outputLabel3, outputLabel4;
     public Timer timer = new Timer(10, new TimerHandler());
     LocalTime startTime=LocalTime.now();
     LocalTime currentTime=LocalTime.now();
@@ -27,8 +28,17 @@ public class CheckView extends JPanel {
         tijdlabel = new JLabel (""+timer);
         tijdbeschrijving = new JLabel("Verstreken tijd:");
 
+        outputLabel1 = new JLabel("");
+        outputLabel2 = new JLabel("");
+        outputLabel3 = new JLabel("");
+        outputLabel4 = new JLabel("");
+
         add(tijdbeschrijving);
         add(tijdlabel);
+        add(outputLabel1);
+        add(outputLabel2);
+        add(outputLabel3);
+        add(outputLabel4);
     }
     class TimerHandler implements ActionListener {
         public void actionPerformed(ActionEvent e){
