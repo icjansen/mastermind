@@ -14,6 +14,7 @@ class MastermindController extends JPanel {
 	private SecretView secretview;
 	private CodeModel codemodel;
 	public KnopRij[] knoprijen = new KnopRij[8];
+	public JButton[] secretButton;
 
 	private int current = 0;
 	//		private int waarde = 0;
@@ -43,6 +44,14 @@ class MastermindController extends JPanel {
 		}
 
 		setRowState(knoprijen[current], true);
+
+		secretButton = new JButton[5];
+		for(int i=1; i<=4; i++){
+			secretButton[i]=new JButton("Geheim "+i);
+			secretButton[i].setPreferredSize(new Dimension(100, 50));
+			secretButton[i].setEnabled(false);
+			secretButton[i].setBackground(Color.BLACK);
+		}
 
 		gameview = new GameView(this);
 		invoerview = new InvoerView();

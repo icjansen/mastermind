@@ -11,5 +11,9 @@ public class GameView extends JPanel {
         for (int i = 7; i >= 0 ; i--){
             add(controller.knoprijen[i]);
         }
+
+        for(int i=1; i<=4; i++){
+            add(controller.secretButton[i]);
+        }
     }
 }
