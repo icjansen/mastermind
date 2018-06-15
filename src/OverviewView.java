@@ -11,7 +11,6 @@ public class OverviewView extends JPanel {
 
     public OverviewView (){
 
-        setBackground(Color.RED);
         highscorelabel = new JLabel();
         highscorelabel.setText("Highscore");
 

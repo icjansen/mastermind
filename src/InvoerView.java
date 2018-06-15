@@ -1,4 +1,4 @@
-import java.awt.Color;
+import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -9,10 +9,8 @@ public class InvoerView extends JPanel {
 
     public InvoerView (){
 
-        setBackground(Color.YELLOW);
-
         checkknop = new JButton("Check");
-        checkknop.setSize(100, 100);
+        checkknop.setPreferredSize(new Dimension(300, 50));
 
         add(checkknop);
     }
