@@ -23,8 +23,6 @@ public class KnopRij extends JPanel{
         pin2.setPreferredSize(new Dimension(100, 50));
         pin3.setPreferredSize(new Dimension(100, 50));
         pin4.setPreferredSize(new Dimension(100, 50));
-        
-        setBackground(Color.GREEN);
 
         add(pin1);
         add(pin2);

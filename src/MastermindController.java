@@ -15,12 +15,12 @@ class MastermindController extends JPanel {
 	private CodeModel codemodel;
 	public KnopRij[] knoprijen = new KnopRij[8];
 	public JButton[] secretButton;
+	//TODO public int[] goedoffout = new int[8];
 
 	private int current = 0;
 	//		private int waarde = 0;
 	//		private int turncount=0;
 
-	boolean geraden = false;
 
 	public MastermindController() {
 
@@ -28,6 +28,11 @@ class MastermindController extends JPanel {
 
 		//De getallen staan voor de ruimte tussen de views
 		setLayout( new BorderLayout( 0, 0 ) );
+
+		//TODO
+//		for(int i=0; i<8; i++){
+//
+//		}
 
 		for (int i = 7; i >= 0 ; i--){
 			KnopRij knopRij;
@@ -130,14 +135,22 @@ class MastermindController extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				checkview.timer.stop();
 				codemodel = new CodeModel();
-				setRowState(knoprijen[current], false);
+				if(current != 8){
+					setRowState(knoprijen[current], false);
+					current=0;
+					setRowState(knoprijen[current], true);
+					for(int current=0; current<8; current++){
+						knoprijen[current].pin1.setBackground(new JButton().getBackground());
+						knoprijen[current].pin2.setBackground(new JButton().getBackground());
+						knoprijen[current].pin3.setBackground(new JButton().getBackground());
+						knoprijen[current].pin4.setBackground(new JButton().getBackground());
+					}
+				}
 				current=0;
 				setRowState(knoprijen[current], true);
-				for(int current=0; current<8; current++){
-					knoprijen[current].pin1.setBackground(new JButton().getBackground());
-					knoprijen[current].pin2.setBackground(new JButton().getBackground());
-					knoprijen[current].pin3.setBackground(new JButton().getBackground());
-					knoprijen[current].pin4.setBackground(new JButton().getBackground());
+				invoerview.checkknop.setEnabled(true);
+				for(int i=1; i<=4; i++){
+					secretButton[i].setBackground(Color.BLACK);
 				}
 				checkview.startTime = LocalTime.now();
 				checkview.isgestart=true;
@@ -157,7 +170,12 @@ class MastermindController extends JPanel {
 				int pin4waarde = getIntByColor(currentRij.pin4.getBackground());
 
 				current++;
-				setRowState(knoprijen[current], true);
+				if(current<=7){
+					setRowState(knoprijen[current], true);
+				}else{
+					invoerview.checkknop.setEnabled(false);
+					checkview.timer.stop();
+				}
 
 				//Wat de checkknop moet doen
 				System.out.println("Rij is: ");
@@ -256,21 +274,21 @@ class MastermindController extends JPanel {
 
 					if(pin1waarde == codemodel.secretpin2 && wittepin1 == false){
 						wittepin1 = true;
-						if(zwartepin2 == false){
+						if(!zwartepin2){
 							//geef een witte pin
 							System.out.println("Voor pin1 is een witte pin");
 						}
 					}
 					if(pin1waarde == codemodel.secretpin3 && wittepin1 == false){
 						wittepin1 = true;
-						if(zwartepin3 == false){
+						if(!zwartepin3){
 							//geef een witte pin
 							System.out.println("Voor pin1 is een witte pin");
 						}
 					}
 					if(pin1waarde == codemodel.secretpin4 && wittepin1 == false){
 						wittepin1 = true;
-						if(zwartepin4 == false){
+						if(!zwartepin4){
 							//geef een witte pin
 							System.out.println("Voor pin1 is een witte pin");
 						}
@@ -278,21 +296,21 @@ class MastermindController extends JPanel {
 
 					if(pin2waarde == codemodel.secretpin1 && wittepin2 == false){
 						wittepin2 = true;
-						if(zwartepin1 == false){
+						if(!zwartepin1){
 							//geef een witte pin
 							System.out.println("Voor pin2 is een witte pin");
 						}
 					}
 					if( pin2waarde == codemodel.secretpin3 && wittepin2 == false){
 						wittepin2 = true;
-						if(zwartepin3 == false){
+						if(!zwartepin3){
 							//geef een witte pin
 							System.out.println("Voor pin2 is een witte pin");
 						}
 					}
 					if(pin2waarde == codemodel.secretpin4 && wittepin2 == false){
 						wittepin2 = true;
-						if(zwartepin4 == false){
+						if(!zwartepin4){
 							//geef een witte pin
 							System.out.println("Voor pin2 is een witte pin");
 						}
@@ -300,21 +318,21 @@ class MastermindController extends JPanel {
 
 					if(pin3waarde == codemodel.secretpin1 && wittepin3 == false){
 						wittepin3 = true;
-						if(zwartepin1 == false){
+						if(!zwartepin1){
 							//geef een witte pin
 							System.out.println("Voor pin3 is een witte pin");
 						}
 					}
 					if(pin3waarde == codemodel.secretpin2 && wittepin3 == false){
 						wittepin3 = true;
-						if(zwartepin2 == false){
+						if(!zwartepin2){
 							//geef een witte pin
 							System.out.println("Voor pin3 is een witte pin");
 						}
 					}
 					if(pin3waarde == codemodel.secretpin4 && wittepin3 == false){
 						wittepin3 = true;
-						if(zwartepin4 == false){
+						if(!zwartepin4){
 							//geef een witte pin
 							System.out.println("Voor pin3 is een witte pin");
 						}
@@ -322,21 +340,21 @@ class MastermindController extends JPanel {
 
 					if(pin4waarde == codemodel.secretpin1 && wittepin4 == false){
 						wittepin4 = true;
-						if(zwartepin1 == false){
+						if(!zwartepin1){
 							//geef een witte pin
 							System.out.println("Voor pin4 is een witte pin");
 						}
 					}
 					if(pin4waarde == codemodel.secretpin2 && wittepin4 == false){
 						wittepin4 = true;
-						if(zwartepin2 == false){
+						if(!zwartepin2){
 							//geef een witte pin
 							System.out.println("Voor pin4 is een witte pin");
 						}
 					}
 					if(pin4waarde == codemodel.secretpin3 && wittepin4 == false){
 						wittepin4 = true;
-						if(zwartepin3 == false){
+						if(!zwartepin3){
 							//geef een witte pin
 							System.out.println("Voor pin4 is een witte pin");
 						}
@@ -363,6 +381,61 @@ class MastermindController extends JPanel {
 				}
 				else {
 					System.out.println("Current = " + current);
+					if (codemodel.secretpin1 == 1){
+						secretButton[1].setBackground(Color.GREEN);
+					} else if(codemodel.secretpin1 == 2){
+						secretButton[1].setBackground(Color.RED);
+					} else if(codemodel.secretpin1 == 3){
+						secretButton[1].setBackground(Color.BLUE);
+					} else if(codemodel.secretpin1 == 4){
+						secretButton[1].setBackground(Color.YELLOW);
+					} else if(codemodel.secretpin1 == 5){
+						secretButton[1].setBackground(Color.CYAN);
+					} else{
+						secretButton[1].setBackground(Color.MAGENTA);
+					}
+
+					if (codemodel.secretpin2 == 1){
+						secretButton[2].setBackground(Color.GREEN);
+					} else if(codemodel.secretpin2 == 2){
+						secretButton[2].setBackground(Color.RED);
+					} else if(codemodel.secretpin2 == 3){
+						secretButton[2].setBackground(Color.BLUE);
+					} else if(codemodel.secretpin2 == 4){
+						secretButton[2].setBackground(Color.YELLOW);
+					} else if(codemodel.secretpin2 == 5){
+						secretButton[2].setBackground(Color.CYAN);
+					} else{
+						secretButton[2].setBackground(Color.MAGENTA);
+					}
+
+					if (codemodel.secretpin3 == 1){
+						secretButton[3].setBackground(Color.GREEN);
+					} else if(codemodel.secretpin3 == 2){
+						secretButton[3].setBackground(Color.RED);
+					} else if(codemodel.secretpin3 == 3){
+						secretButton[3].setBackground(Color.BLUE);
+					} else if(codemodel.secretpin3 == 4){
+						secretButton[3].setBackground(Color.YELLOW);
+					} else if(codemodel.secretpin3 == 5){
+						secretButton[3].setBackground(Color.CYAN);
+					} else{
+						secretButton[3].setBackground(Color.MAGENTA);
+					}
+
+					if (codemodel.secretpin4 == 1){
+						secretButton[4].setBackground(Color.GREEN);
+					} else if(codemodel.secretpin4 == 2){
+						secretButton[4].setBackground(Color.RED);
+					} else if(codemodel.secretpin4 == 3){
+						secretButton[4].setBackground(Color.BLUE);
+					} else if(codemodel.secretpin4 == 4){
+						secretButton[4].setBackground(Color.YELLOW);
+					} else if(codemodel.secretpin4 == 5){
+						secretButton[4].setBackground(Color.CYAN);
+					} else{
+						secretButton[4].setBackground(Color.MAGENTA);
+					}
 				}
 			}
 		});
